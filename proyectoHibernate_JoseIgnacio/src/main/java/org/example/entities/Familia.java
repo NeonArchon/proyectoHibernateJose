@@ -1,14 +1,26 @@
 package org.example.entities;
 
-public class Familia {
+import jakarta.persistence.*;
+
+import java.io.Serializable;
+
+@Entity
+public class Familia implements Serializable {
 
     /*
     * datos de la familia que acoge un animal (nombre, edad, ciudad).
     * */
 
     //atributos
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
+    private int Id;
     private String Nombre;
+
+
     private int Edad;
+
     private String Ciudad;
 
     //constrcutor vacio
@@ -17,7 +29,8 @@ public class Familia {
     //constructor con atributos
 
 
-    public Familia(String nombre, int edad, String ciudad) {
+    public Familia(int id, String nombre, int edad, String ciudad) {
+        Id = id;
         this.Nombre = nombre;
         this.Edad = edad;
         this.Ciudad = ciudad;
@@ -25,6 +38,14 @@ public class Familia {
 
     //getters y setters
 
+
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int id) {
+        Id = id;
+    }
 
     public String getNombre() {
         return Nombre;
