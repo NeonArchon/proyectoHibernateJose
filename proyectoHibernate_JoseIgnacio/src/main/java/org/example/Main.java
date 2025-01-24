@@ -30,6 +30,7 @@ public class Main {
 
             case 1:
                 System.out.println("Registrar animal");
+                System.out.println("");
                 break;
             case 2:
                 System.out.println("Buscar animal por especia");
@@ -44,7 +45,7 @@ public class Main {
                 System.out.println("Saliendo");
                 break;
             default:
-
+                System.out.println("Numero invalido");
                 break;
             
         } while (op !=5);

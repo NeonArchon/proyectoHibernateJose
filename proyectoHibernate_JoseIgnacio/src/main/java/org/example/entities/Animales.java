@@ -7,12 +7,6 @@ import java.io.Serializable;
 @Entity
 public class Animales implements Serializable {
 
-    /**
-     * Tenemos un refugio de animales perdidos de todo tipo: Perros, gatos, pájaritos, cerdos vietnamitas, serpientes y camaleones y... ¡hasta arañas!
-     * Cada animal tiene un nombre, especie, edad y una descripción de cómo se perdió
-     *
-     */
-
     //atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +15,12 @@ public class Animales implements Serializable {
     private String NombreAnimal;
 
     //HAY QUE PASAR EL ENUM A UN STRING
-    private enum Especie{
-        Perro, Gato, Pajaro, Cerdo, Serpiente, Lagarto, Tortuga, Anfibio, Aracnido
-    }
-    private String Especie;
 
-    //HAY QUE PASAR EL ENUM A UN STRING
-    private enum estado{
-        abandonado, refiguado, acogido
-    }
-    private String estado;
+    @Enumerated(EnumType.STRING)
+    private Especie Especie;
 
+    @Enumerated(EnumType.STRING)
+    private Estado Estado;
 
     private int Edad;
     private String descripcion;
@@ -41,11 +30,11 @@ public class Animales implements Serializable {
 
     //constructor con los atributos
 
-    public Animales(int id, String nombreAnimal, String especie, String estado, int edad, String descripcion) {
+    public Animales(int id, String nombreAnimal, Especie especie, Estado estado, int edad, String descripcion) {
         this.Id = id;
         this.NombreAnimal = nombreAnimal;
-        Especie = especie;
-        this.estado = estado;
+        this.Especie = especie;
+        this.Estado = estado;
         this.Edad = edad;
         this.descripcion = descripcion;
     }
@@ -53,20 +42,20 @@ public class Animales implements Serializable {
     //getters y setters
 
 
-    public String getEspecie() {
+    public Especie getEspecie() {
         return Especie;
     }
 
-    public void setEspecie(String especie) {
+    public void setEspecie(Especie especie) {
         Especie = especie;
     }
 
-    public String getEstado() {
-        return estado;
+    public Estado getEstado() {
+        return Estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setEstado(Estado estado) {
+        this.Estado = estado;
     }
 
     public int getId() {

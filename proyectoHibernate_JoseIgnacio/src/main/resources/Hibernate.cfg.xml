@@ -16,7 +16,7 @@
 
 
         <!-- Clases mapeadas -->
-        <mapping class="org.example.entities.Animales"/>
+        <mapping class="org.example.entities.AnimalesImpDao"/>
         <mapping class="org.example.entities.Familia"/>
     </session-factory>
 </hibernate-configuration>
